@@ -22,8 +22,22 @@ resultDiffList = []
 counterHugo = 0
 counterLucile = 0
 
-# Getting user input on what sum he is looking for:
-targetValue = int(input("What is your sum target value ? --> "))
+# Asking if user want to input a target value or use the default one ?
+flag = True
+
+while flag == bool(True):
+    choice = input("Do you wanna input a target value [y] or use the default one (2020) [n] ? [y/n] --> ")
+    choice = choice[0].lower()
+
+    if choice == 'y':
+        # Getting user input on what sum he is looking for:
+        flag = False
+        targetValue = int(input("What is your target value ? --> "))
+    elif choice == 'n':
+        flag = False
+        targetValue = 2020
+    else:
+        print("Invalid answer. Please try again.")
 
 # Openning the file and creating a loop that goes through each element of the file and adds it to our list
 with myFile as f:
